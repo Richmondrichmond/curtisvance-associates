@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <title>Curtis, Vance & Associates | Elite Global Legal Counsel</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230a0e14' stroke='%23d4af37' stroke-width='4'/%3E%3Cpath d='M35 40H65M50 40V70M40 55C40 55 43 60 50 60C57 60 60 55 60 55' stroke='%23d4af37' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+
+    <style>
+        /* 2026 GOLD EDITION MASTER UI VARIABLES - WITH MOBILE FLUID SCALING SYSTEMS */
+        :root {
+            --bg-deep: #0a0e14;
+            --bg-card: rgba(18, 26, 38, 0.6);
+            --gold-primary: #d4af37;
+            --gold-glow: #f3e5ab;
+            --gold-gradient: linear-gradient(135deg, #b38728 0%, #fbf5b7 25%, #da1b60 50%, #fbf5b7 75%, #aa771c 100%);
+            --gold-button: linear-gradient(90deg, rgba(179,135,40,0.3) 0%, rgba(251,245,183,0.4) 100%);
+            --text-light: #f5f7fa;
+            --text-muted: #8a99ad;
+            --glass-border: rgba(212, 175, 55, 0.15);
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Inter', sans-serif;
+            --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+            
+            /* Fluid Typography via clamp Engine to eradicate massive mobile dimensions */
+            --fs-display: clamp(2.2rem, 6vw + 1rem, 4.8rem);
+            --fs-h2: clamp(1.8rem, 4vw + 0.8rem, 3.0rem);
+            --fs-h3: clamp(1.3rem, 2.5vw + 0.5rem, 1.8rem);
+            --fs-body: clamp(0.95rem, 0.5vw + 0.8rem, 1.15rem);
+            --fs-meta: clamp(0.7rem, 0.2vw + 0.6rem, 0.8rem);
+        }
+
+        /* SYSTEM ADAPTIVE LIGHT MODIFIER SYSTEM */
+        body.light-theme {
+            --bg-deep: #f8f9fa;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --text-light: #0a0e14;
+            --text-muted: #4a5568;
+            --glass-border: rgba(179, 135, 40, 0.3);
+            --gold-button: linear-gradient(90deg, rgba(179,135,40,0.15) 0%, rgba(179,135,40,0.3) 100%);
+        }
+
+        /* CORE RESET & LAYOUT CONTAINER REBALANCING */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { background: var(--bg-deep); color: var(--text-light); font-family: var(--font-sans); overflow-x: hidden; -webkit-font-smoothing: antialiased; transition: background 0.4s ease, color 0.4s ease; }
+        
+        /* Container fluid sizing system ensures edge protection on Android/iOS screens */
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 clamp(1.0rem, 4vw, 2.5rem); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* CUSTOM MODERN CURSOR SYSTEM (Optimized out on mobile device architecture) */
+        .custom-cursor-node { width: 8px; height: 8px; background: var(--gold-primary); border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%); transition: width 0.1s, height 0.1s; }
+        .custom-cursor-ring { width: 40px; height: 40px; border: 1px solid var(--gold-primary); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.1s ease-out; }
+        @media (max-width: 1024px) { .custom-cursor-node, .custom-cursor-ring { display: none !important; } }
+
+        /* SCROLLBAR REFINEMENTS */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 3px; }
+
+        /* UTILITY CONSOLE LAYOUT */
+        .utility-bar { background: rgba(6, 9, 14, 0.9); border-bottom: 1px solid var(--glass-border); padding: 0.6rem 0; font-size: var(--fs-meta); font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-primary); }
+        .utility-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+        .utility-item { display: flex; align-items: center; gap: 0.5rem; }
+
+        /* MODERN HEADER & BACKDROP NAVIGATION SYSTEMS */
+        .header { position: sticky; top: 0; z-index: 1000; background: rgba(10, 14, 20, 0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); transition: all 0.4s var(--transition-smooth); }
+        .header-container { display: flex; justify-content: space-between; align-items: center; height: clamp(70px, 10vh, 90px); }
+        
+        /* 1 MILLION DOLLAR LOGO SYSTEM SETUP WITH PATH DRAWING */
+        .logo { display: flex; align-items: center; gap: 1rem; cursor: pointer; }
+        .logo-emblem-svg { width: 45px; height: 45px; transform: rotate(-180deg); opacity: 0; animation: logoRevealEffect 1.5s var(--transition-smooth) forwards; }
+        
+        @keyframes logoRevealEffect {
+            100% { transform: rotate(0deg); opacity: 1; }
+        }
+
+        .logo-text h1 { font-family: var(--font-serif); font-size: clamp(1.1rem, 2vw, 1.8rem); font-weight: 600; letter-spacing: 1px; background: linear-gradient(90deg, #fff, var(--gold-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; }
+        body.light-theme .logo-text h1 { background: #0a0e14; -webkit-background-clip: unset; -webkit-text-fill-color: unset; }
+        .logo span { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 4px; color: var(--text-muted); margin-top: 2px; }
+
+        .nav-menu ul { display: flex; align-items: center; gap: clamp(1.2rem, 2vw, 2.5rem); }
+        .nav-link { font-size: var(--fs-meta); font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); transition: color 0.3s; position: relative; padding: 0.5rem 0; }
+        .nav-link:hover, .nav-link.active { color: var(--gold-glow); }
+        .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--gold-primary); transition: width 0.3s var(--transition-smooth); }
+        .nav-link:hover::after { width: 100%; }
+
+        .theme-toggle-node { background: none; border: none; color: var(--gold-primary); cursor: pointer; font-size: 1.1rem; margin: 0 0.5rem; transition: transform 0.3s; }
+        .theme-toggle-node:hover { transform: rotate(20deg) scale(1.1); }
+
+        /* BUTTON GRAPHICS ENGINE MATRICES */
+        .btn-nav { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; padding: 0.7rem 1.4rem; border: 1px solid var(--gold-primary); background: transparent; border-radius: 50px; color: var(--gold-primary); transition: all 0.4s var(--transition-smooth); }
+        .btn-nav:hover { background: var(--gold-primary); color: var(--bg-deep) !important; box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); transform: translateY(-1px); }
+
+        .btn-primary { display: inline-flex; align-items: center; gap: 1.5rem; padding: 1rem 1.5rem 1rem 2rem; background: var(--gold-button); border: 1px solid rgba(251,245,183,0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 100px; color: #fff; font-size: 0.8rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; transition: all 0.5s var(--transition-smooth); box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
+        .btn-primary .hover-node { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 50px; color: var(--gold-glow); transition: all 0.4s var(--transition-smooth); font-size: 0.8rem; }
+        .btn-primary:hover { border-color: var(--gold-primary); box-shadow: 0 0 35px rgba(212, 175, 55, 0.25); transform: translateY(-3px); }
+        .btn-primary:hover .hover-node { background: var(--gold-primary); color: var(--bg-deep); transform: translateX(5px); }
+
+        .btn-secondary { display: inline-flex; align-items: center; padding: 1.1rem 2.2rem; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); border-radius: 100px; color: var(--text-light); font-size: 0.8rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; transition: all 0.4s; }
+        .btn-secondary:hover { border-color: var(--gold-primary); background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+
+        .mobile-menu-toggle { display: none; background: none; border: none; color: var(--text-light); font-size: 1.5rem; cursor: pointer; padding: 0.5rem; }
+
+        /* KINETIC HERO ARCHITECTURE WITH GRAPHICAL VECTOR MESH */
+        .hero { min-height: calc(100vh - 125px); display: flex; align-items: center; position: relative; overflow: hidden; padding: clamp(4rem, 10vh, 8rem) 0; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 75% 50%, rgba(18, 32, 54, 0.4) 0%, var(--bg-deep) 75%); z-index: 1; pointer-events: none; }
+        
+        /* 2026 Interactive Luxury Sphere Engine Layout */
+        .hero-graphics-mesh { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); width: min(550px, 40vw); height: min(550px, 40vw); z-index: 2; display: flex; justify-content: center; align-items: center; pointer-events: none; }
+        .interactive-luxury-circle { width: 100%; height: 100%; border: 2px solid var(--gold-primary); border-radius: 50%; position: relative; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 50px rgba(212,175,55,0.2); animation: continuousRotation 40s linear infinite; transform-style: preserve-3d; transition: transform 0.2s ease-out; }
+        .circle-ripple { position: absolute; width: 125%; height: 125%; border: 1px dashed rgba(255,255,255,0.1); border-radius: 50%; animation: continuousRotation -20s linear infinite; }
+        .circle-center-logo { font-family: var(--font-serif); font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; color: var(--gold-primary); letter-spacing: 2px; transform: translateZ(30px); }
+
+        @keyframes continuousRotation { 100% { transform: rotate(360deg); } }
+
+        .hero-content { position: relative; z-index: 3; max-width: min(800px, 60vw); }
+        .hero-badge { display: inline-block; font-size: var(--fs-meta); text-transform: uppercase; letter-spacing: 3px; color: var(--gold-primary); font-weight: 600; margin-bottom: 1.5rem; border-left: 2px solid var(--gold-primary); padding-left: 10px; }
+        .hero h2 { font-family: var(--font-serif); font-size: var(--fs-display); font-weight: 500; line-height: 1.1; margin-bottom: 2rem; background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 40%, var(--gold-glow) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body.light-theme .hero h2 { background: #0a0e14; -webkit-background-clip: unset; -webkit-text-fill-color: unset; }
+        .hero p { font-size: var(--fs-body); line-height: 1.8; color: var(--text-muted); font-weight: 300; margin-bottom: 3rem; max-width: 650px; }
+        .hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+
+        /* THE TRUST BAR METRIC ENGINES */
+        .trust-bar { background: rgba(8, 12, 18, 0.9); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); padding: clamp(2rem, 5vw, 3.5rem) 0; position: relative; z-index: 4; }
+        .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1rem, 3vw, 2.5rem); text-align: center; }
+        .trust-stat h3 { font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 3.2rem); font-weight: 400; color: var(--gold-glow); margin-bottom: 0.3rem; }
+        body.light-theme .trust-stat h3 { color: #b38728; }
+        .trust-stat p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); font-weight: 500; }
+
+        /* CORE SECTION ARCHITECTURES */
+        .luxury-segment-node { padding: clamp(4rem, 8vh, 10rem) 0; }
+        .section-header { text-align: center; margin-bottom: clamp(3rem, 6vh, 5rem); }
+        .section-header span { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px; color: var(--gold-primary); font-weight: 600; margin-bottom: 1rem; }
+        .section-header h2 { font-family: var(--font-serif); font-size: var(--fs-h2); font-weight: 400; letter-spacing: 1px; }
+        .accent-line { width: 60px; height: 1px; background: var(--gold-primary); margin: 1.5rem auto 0; }
+
+        /* PRACTICE AREAS 2026 GRID SYSTEMS */
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .practice-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 24px; padding: clamp(2rem, 4vw, 3.5rem); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: all 0.4s var(--transition-smooth); transform-style: preserve-3d; transform: perspective(1000px); }
+        .practice-card:hover { border-color: rgba(212, 175, 55, 0.5); transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .card-icon { font-size: 2rem; color: var(--gold-primary); margin-bottom: 2rem; transition: transform 0.3s ease; }
+        .practice-card:hover .card-icon { transform: translateZ(20px) scale(1.1); }
+        .practice-card h3 { font-family: var(--font-serif); font-size: var(--fs-h3); font-weight: 500; margin-bottom: 1rem; letter-spacing: 0.5px; }
+        .practice-card p { color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; font-weight: 300; }
+
+        /* CASE TIMELINE MODULE DEVELOPMENT */
+        .timeline-container { position: relative; max-width: 900px; margin: 0 auto; padding: 2rem 0; }
+        .timeline-container::after { content: ''; position: absolute; width: 1px; background: var(--glass-border); top: 0; bottom: 0; left: 50%; }
+        .timeline-block { padding: 1rem 3rem; relative; width: 50%; }
+        .timeline-block-left { left: 0; text-align: right; }
+        .timeline-block-right { left: 50%; }
+        .timeline-pointer { position: absolute; width: 12px; height: 12px; right: -6px; background: var(--gold-primary); top: 30px; border-radius: 50%; z-index: 5; }
+        .timeline-block-right .timeline-pointer { left: -6px; }
+        .timeline-card { background: var(--bg-card); padding: 1.8rem; border-radius: 16px; border: 1px solid var(--glass-border); }
+        .timeline-card h4 { font-family: var(--font-serif); color: var(--gold-primary); font-size: 1.4rem; margin-bottom: 0.5rem; }
+
+        /* CLIENT MARQUEE RUN ENGINE AUTOPLAY */
+        .marquee-container { overflow: hidden; display: flex; width: 100%; position: relative; padding: 1rem 0; }
+        .marquee-track { display: flex; gap: 2rem; width: max-content; animation: runMarqueeEngine 30s linear infinite; }
+        .marquee-track:hover { animation-play-state: paused; }
+        @keyframes runMarqueeEngine { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .testimonial-marquee-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 16px; padding: 2rem; width: clamp(280px, 40vw, 400px); backdrop-filter: blur(10px); }
+        .star-rating-row { color: var(--gold-primary); margin-bottom: 1rem; font-size: 0.8rem; }
+
+        /* RECOGNITION BADGE DIRECTORY MATRIX */
+        .directory-badge-strip { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(2rem, 5vw, 5rem); padding: 2rem 0; opacity: 0.7; }
+        .directory-badge-strip i { font-size: clamp(2rem, 4vw, 3rem); color: var(--text-muted); transition: color 0.3s; }
+        .directory-badge-strip i:hover { color: var(--gold-primary); }
+
+        /* PROTECTED CLIENT ECOSYSTEM NODE */
+        .client-portal-banner { padding: clamp(4rem, 6vw, 6rem) 0; background: linear-gradient(90deg, rgba(10,14,20,1) 0%, rgba(18,26,38,0.8) 50%, rgba(10,14,20,1) 100%); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
+        .portal-wrapper { display: flex; justify-content: space-between; align-items: center; gap: 3rem; }
+        .portal-text h2 { font-family: var(--font-serif); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 400; margin-bottom: 1rem; }
+        .portal-text p { color: var(--text-muted); font-size: 1rem; font-weight: 300; max-width: 700px; line-height: 1.6; }
+        .btn-portal { display: inline-flex; align-items: center; gap: 1rem; padding: 1.1rem 2.2rem; background: transparent; border: 1px solid var(--gold-primary); border-radius: 50px; color: var(--gold-primary); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: all 0.4s var(--transition-smooth); white-space: nowrap; }
+        .btn-portal:hover { background: var(--gold-primary); color: var(--bg-deep) !important; box-shadow: 0 0 25px rgba(212, 175, 55, 0.3); transform: translateY(-2px); }
+
+        /* PARTNERS WORKSPACE ARCHITECTURE */
+        .attorney-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+        .attorney-profile-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 20px; overflow: hidden; position: relative; transition: all 0.4s ease; }
+        .attorney-image-container { height: 320px; background: linear-gradient(180deg, rgba(18,26,38,0) 50%, rgba(10,14,20,1) 100%), #1a2433; display: flex; align-items: flex-end; justify-content: center; position: relative; }
+        .attorney-image-placeholder { font-size: 5rem; color: rgba(212,175,55,0.15); margin-bottom: 2rem; transition: transform 0.4s ease; }
+        .attorney-profile-card:hover { transform: translateY(-10px); border-color: var(--gold-primary); }
+        .attorney-profile-card:hover .attorney-image-placeholder { transform: scale(1.1) translateY(-10px); }
+        .attorney-details-box { padding: 2rem; text-align: center; background: rgba(10,14,20,0.9); }
+        .attorney-details-box h4 { font-family: var(--font-serif); font-size: 1.5rem; color: #fff; margin-bottom: 0.3rem; }
+        .attorney-details-box p { font-size: 0.75rem; text-transform: uppercase; color: var(--gold-primary); letter-spacing: 2px; }
+
+        /* INSIGHTS NEWS CHANNELS SYSTEM */
+        .news-grid-system { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
+        .news-editorial-card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 16px; padding: 2rem; transition: transform 0.3s; }
+        .news-editorial-card:hover { transform: translateY(-5px); border-color: var(--gold-primary); }
+        .news-date-stamp { font-size: 0.7rem; color: var(--gold-primary); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.8rem; }
+        .news-editorial-card h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 1rem; line-height: 1.3; }
+        .news-editorial-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+        /* INFORMATION ACCORDION ARCHITECTURE */
+        .faq-accordion { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+        .faq-item { background: rgba(18, 26, 38, 0.4); border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; transition: all 0.3s; }
+        .faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 2rem; background: none; border: none; color: var(--text-light); font-family: var(--font-serif); font-size: 1.3rem; text-align: left; cursor: pointer; font-weight: 400; }
+        .faq-question i { font-size: 0.9rem; color: var(--gold-primary); transition: transform 0.4s var(--transition-smooth); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--transition-smooth); padding: 0 2rem; }
+        .faq-answer p { padding-bottom: 2rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; font-size: 0.95rem; }
+        .faq-item.active { border-color: rgba(212,175,55,0.4); background: rgba(18,26,38,0.7); }
+        .faq-item.active .faq-question i { transform: rotate(-180deg); }
+        .faq-item.active .faq-answer { max-height: 200px; }
+
+        /* CONTACT SECTION & PRESERVED CUSTOM FORM LAYOUT CONFIGS */
+        .contact { padding: clamp(4rem, 8vh, 8rem) 0; border-top: 1px solid var(--glass-border); background: rgba(8, 12, 18, 0.4); }
+        .contact-wrapper { display: grid; grid-template-columns: 45% 55%; gap: 5rem; align-items: start; }
+        .contact-info-block h2 { font-family: var(--font-serif); font-size: var(--fs-h2); font-weight: 400; margin-bottom: 1.5rem; }
+        .contact-info-block p { color: var(--text-muted); line-height: 1.8; font-weight: 300; margin-bottom: 3rem; font-size: var(--fs-body); }
+        
+        .firm-details { display: flex; flex-direction: column; gap: 1.5rem; }
+        .firm-details p { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0; color: var(--text-light); font-size: 0.95rem; font-weight: 400; }
+        .firm-details i { color: var(--gold-primary); width: 20px; font-size: 1.1rem; }
+
+        /* PRESERVED STYLING ARCHITECTURE FOR THE EXACT MANDATED CONTACT FORM */
+        .contact-form-block { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 24px; padding: clamp(1.5rem, 4vw, 3.5rem); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
+        .form-group { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; width: 100%; }
+        .form-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        
+        label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-primary); font-weight: 600; }
+        input, select, textarea { width: 100%; background: rgba(10, 14, 20, 0.7); border: 1px solid var(--glass-border); border-radius: 12px; padding: 1.1rem 1.5rem; color: #fff; font-family: var(--font-sans); font-size: 0.95rem; font-weight: 300; transition: all 0.3s; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold-primary); box-shadow: 0 0 15px rgba(212,175,55,0.15); }
+        
+        /* Light mode controls for form field input integrity */
+        body.light-theme input, body.light-theme select, body.light-theme textarea { background: #fff; color: #0a0e14; }
+        select { appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23d4af37'><path d='M6 9L1 3h10z'/></svg>"); background-repeat: no-repeat; background-position: right 1.5rem center; }
+        
+        .btn-submit { width: 100%; padding: 1.3rem; background: var(--gold-gradient); border: none; border-radius: 12px; font-family: var(--font-sans); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #000; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 1rem; transition: all 0.4s; }
+        .btn-submit:hover { box-shadow: 0 0 30px rgba(212,175,55,0.4); transform: translateY(-2px); opacity: 0.95; }
+
+        /* MANDATED PRESERVATION: FLOATING NATIVE TEXT ENCRYPTED CONSOLE */
+        .sms-float { position: fixed; bottom: 40px; right: 40px; z-index: 9999; display: flex; align-items: center; gap: 1rem; background: rgba(10, 14, 20, 0.85); border: 1px solid var(--gold-primary); padding: 0.8rem 1.8rem 0.8rem 1rem; border-radius: 100px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); cursor: pointer; transition: all 0.4s var(--transition-smooth); animation: floatBounce 4.5s ease-in-out infinite; box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
+        .sms-icon-wrapper { width: 45px; height: 45px; background: linear-gradient(135deg, #b38728 0%, #fbf5b7 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #000; position: relative; }
+        .pulse-ring { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--gold-primary); animation: ringPulse 3s cubic-bezier(0.25, 0, 0, 1) infinite; }
+        .float-text { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: #fff; }
+        .sms-float:hover { transform: scale(1.05) translateY(-5px); border-color: var(--gold-glow); box-shadow: 0 20px 40px rgba(212, 175, 55, 0.25); }
+
+        @keyframes floatBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        @keyframes ringPulse { 0% { transform: scale(0.95); opacity: 0.8; } 100% { transform: scale(1.6); opacity: 0; } }
+
+        /* PREFS REDUCED MOTION SAFEGUARD CORE */
+        @media (prefers-reduced-motion: reduce) {
+            *, .interactive-luxury-circle, .circle-ripple, .sms-float, .marquee-track { animation: none !important; transition: none !important; transform: none !important; }
+        }
+
+        /* PREMIUM DYNAMIC MULTI COLUMN FOOTER FRAMEWORK */
+        footer { background: #06090e; border-top: 1px solid var(--glass-border); padding: 5rem 0 3rem; font-size: 0.8rem; color: var(--text-muted); }
+        .footer-grid-layout { display: grid; grid-template-columns: 2fr repeat(2, 1fr) 1.5fr; gap: 3rem; margin-bottom: 4rem; }
+        .footer-col h4 { font-family: var(--font-serif); color: #fff; font-size: 1.2rem; margin-bottom: 1.5rem; letter-spacing: 1px; }
+        .footer-logo-text { font-family: var(--font-serif); font-size: 1.6rem; color: #fff; margin-bottom: 0.3rem; }
+        .footer-tagline { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; color: var(--gold-primary); }
+        .footer-col ul { display: flex; flex-direction: column; gap: 0.8rem; }
+        .footer-col ul a { transition: color 0.3s; }
+        .footer-col ul a:hover { color: var(--gold-primary); }
+        
+        .newsletter-form { display: flex; margin-top: 1rem; width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--glass-border); }
+        .newsletter-form input { padding: 0.8rem; border-radius: 0; border: none; background: rgba(0,0,0,0.4); }
+        .newsletter-form button { background: var(--gold-primary); border: none; padding: 0 1.2rem; color: #000; cursor: pointer; font-weight: 600; }
+
+        .footer-bottom-bar { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-legal { max-width: 600px; }
+        .footer-legal p { margin-bottom: 0.5rem; line-height: 1.6; }
+        .disclaimer { font-size: 0.7rem; opacity: 0.6; }
+
+        /* ==========================================================================
+           CRITICAL RESPONSIVE MEDIA QUERIES (COMPLETELY RESCALING THE CELLULAR BLOWOUTS)
+           ========================================================================== */
+        @media (max-width: 1200px) {
+            .hero-graphics-mesh { right: 2%; width: 35vw; height: 35vw; }
+            .hero-content { max-width: 55vw; }
+            .attorney-grid, .news-grid-system { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid-layout { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 992px) {
+            .utility-bar { display: none; }
+            .hero { padding: 6rem 0 4rem; min-height: auto; }
+            .hero-overlay { background: radial-gradient(circle at 50% 30%, rgba(18, 32, 54, 0.5) 0%, var(--bg-deep) 85%); }
+            .hero-graphics-mesh { position: relative; top: unset; right: unset; transform: unset; width: clamp(200px, 45vw, 320px); height: clamp(200px, 45vw, 320px); margin: 3rem auto 0; }
+            .hero-content { max-width: 100%; text-align: center; }
+            .hero p { margin: 0 auto 3rem; }
+            .hero-actions { justify-content: center; }
+            
+            .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .practice-grid { grid-template-columns: 1fr; }
+            .timeline-container::after { left: 20px; }
+            .timeline-block { width: 100%; padding-left: 50px; padding-right: 0; text-align: left; }
+            .timeline-block-left { left: 0; }
+            .timeline-block-right { left: 0; }
+            .timeline-pointer { left: 14px !important; right: unset !important; }
+            
+            .portal-wrapper { flex-direction: column; text-align: center; gap: 2rem; }
+            .contact-wrapper { grid-template-columns: 1fr; gap: 4rem; }
+        }
+
+        @media (max-width: 768px) {
+            .header-container { height: 75px; }
+            .mobile-menu-toggle { display: block; z-index: 1001; }
+            
+            /* High-Performance Slide Nav Overlay */
+            .nav-menu { position: fixed; top: 0; right: -100%; width: 85%; max-width: 360px; height: 100vh; background: rgba(10, 14, 20, 0.98); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border-left: 1px solid var(--glass-border); padding: 7rem 2.5rem 2.5rem; transition: right 0.5s var(--transition-smooth); z-index: 1000; }
+            .nav-menu.active { right: 0; }
+            .nav-menu ul { flex-direction: column; align-items: flex-start; gap: 2rem; width: 100%; }
+            .nav-link { font-size: 1.05rem; width: 100%; display: block; }
+            .btn-nav { width: 100%; text-align: center; margin-top: 1rem; }
+            
+            .hero-actions { flex-direction: column; width: 100%; gap: 1rem; }
+            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+            
+            .attorney-grid, .news-grid-system, .footer-grid-layout { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+            
+            .sms-float { bottom: 20px; right: 20px; padding: 0.6rem 1.3rem 0.6rem 0.6rem; }
+            .sms-icon-wrapper { width: 38px; height: 38px; font-size: 1rem; }
+            .float-text { font-size: 0.65rem; letter-spacing: 1px; }
+            .footer-bottom-bar { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="custom-cursor-node" id="cursorNode"></div>
+    <div class="custom-cursor-ring" id="cursorRing"></div>
+
+    <div class="utility-bar">
+        <div class="container utility-container">
+            <span class="utility-item"><i class="fas fa-shield-alt"></i> Encrypted Connection (TLS 1.3)</span>
+            <span class="utility-item"><i class="fas fa-globe"></i> NYC | London | Geneva | Tokyo</span>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo" onclick="window.scrollTo(0,0)">
+                <svg class="logo-emblem-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,5 92,25 92,75 50,95 8,75 8,25" stroke="#d4af37" stroke-width="3" fill="#0A1929"/>
+                    <path d="M35,35 H65 M50,35 V70 M38,55 C38,55 42,62 50,62 C58,62 62,55 62,55" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M42,42 L32,52 M58,42 L68,52" stroke="#d4af37" stroke-width="2"/>
+                    <text x="50" y="28" fill="#f3e5ab" font-family="'Inter'" font-size="10" font-weight="700" text-anchor="middle">CV</text>
+                </svg>
+                <div class="logo-text">
+                    <h1>Curtis, Vance &amp; Associates</h1>
+                    <span>Elite Legal Chambers</span>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#practice" class="nav-link">Practice Areas</a></li>
+                    <li><a href="#results" class="nav-link">Case Results</a></li>
+                    <li><a href="#attorneys" class="nav-link">Attorneys</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li>
+                        <button class="theme-toggle-node" onclick="toggleSystemTheme()" aria-label="Toggle Brightness Visual Framework">
+                            <i class="fas fa-moon" id="themeNavIcon"></i>
+                        </button>
+                    </li>
+                    <li><a href="#contact" class="btn-nav">Secure Retainer</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-graphics-mesh">
+            <div class="interactive-luxury-circle" id="parallaxSphere">
+                <div class="circle-ripple"></div>
+                <div class="circle-center-logo">CV</div>
+            </div>
+        </div>
+
+        <div class="hero-content container">
+            <span class="hero-badge" data-aos="fade-right">Ranked #1 in Cross-Border Litigation (2024-2026)</span>
+            <h2 data-aos="fade-right" data-aos-delay="100" id="sequentialText">Preeminent Global Advocacy • Defending Legacies • Securing Billions</h2>
+            <p data-aos="fade-right" data-aos-delay="200">Where Precedent Meets Innovation. For over three decades, Curtis, Vance &amp; Associates has defined the gold standard in global advocacy. High-stakes corporate counsel, white-collar defense, and cross-border litigation for Fortune 100 entities and ultra-high-net-worth individuals.</p>
+            <div class="hero-actions" data-aos="fade-right" data-aos-delay="300">
+                <a href="#contact" class="btn-primary">
+                    <span>Request Confidential Briefing</span>
+                    <div class="hover-node"><i class="fas fa-arrow-right"></i></div>
+                </a>
+                <a href="#practice" class="btn-secondary">Explore Sectors</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-bar" id="metricsTrigger">
+        <div class="container trust-grid">
+            <div class="trust-stat">
+                <h3 class="counter-node" data-value="50">$0B+</h3>
+                <p>Verdicts &amp; Settlements</p>
+            </div>
+            <div class="trust-stat">
+                <h3 class="counter-node" data-value="500">0+</h3>
+                <p>Corporate Success Matrix</p>
+            </div>
+            <div class="trust-stat">
+                <h3 class="counter-node" data-value="40">0+</h3>
+                <p>Years of Elite Mandates</p>
+            </div>
+            <div class="trust-stat">
+                <h3 class="counter-node" data-value="25">0+</h3>
+                <p>Asset Jurisdiction Span</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="practice" class="luxury-segment-node practice-areas">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span>Our Capabilities</span>
+                <h2>Sectors of Elite Mastery</h2>
+                <div class="accent-line"></div>
+            </div>
+            <div class="practice-grid">
+                <div class="practice-card" data-aos="fade-up" data-tilt>
+                    <div class="card-icon"><i class="fas fa-gavel"></i></div>
+                    <h3>High-Stakes Corporate Law</h3>
+                    <p>Elite mergers, mega-acquisitions, and strict corporate governance for multi-national conglomerates.</p>
+                </div>
+                <div class="practice-card" data-aos="fade-up" data-tilt data-aos-delay="100">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Securities &amp; SEC Litigation</h3>
+                    <p>Robust defense tactics countering regulatory investigations, insider trading claims, and shareholder class actions.</p>
+                </div>
+                <div class="practice-card" data-aos="fade-up" data-tilt>
+                    <div class="card-icon"><i class="fas fa-globe"></i></div>
+                    <h3>International Arbitration</h3>
+                    <p>Cross-border dispute resolution and treaty enforcement coordinated across premier global financial hubs.</p>
+                </div>
+                <div class="practice-card" data-aos="fade-up" data-tilt data-aos-delay="100">
+                    <div class="card-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>White Collar Criminal Defense</h3>
+                    <p>Discreet, ironclad representation for board executives facing complex federal indictments and grand jury investigations.</p>
+                </div>
+                <div class="practice-card" data-aos="fade-up" data-tilt>
+                    <div class="card-icon"><i class="fas fa-fingerprint"></i></div>
+                    <h3>IP Litigation</h3>
+                    <p>Defending valuable computational technologies, corporate intelligence assets, and industrial execution frameworks.</p>
+                </div>
+                <div class="practice-card" data-aos="fade-up" data-tilt data-aos-delay="100">
+                    <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Sovereign Entity Strategy</h3>
+                    <p>Insulating trans-national infrastructure assets from complex jurisdictional interventions and tax structural attacks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="results" class="luxury-segment-node" style="background: rgba(6, 9, 14, 0.2);">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span>Track Record</span>
+                <h2>Notable Case Precedents</h2>
+                <div class="accent-line"></div>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-block timeline-block-left" data-aos="fade-right">
+                    <div class="timeline-pointer"></div>
+                    <div class="timeline-card">
+                        <h4>$1.4B Recovery</h4>
+                        <p style="font-weight:600; color:#fff; margin-bottom:0.5rem;">Cross-Border Energy Arbitration</p>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Secured comprehensive award enforcement against a sovereign consortium in the European operational sectors.</p>
+                    </div>
+                </div>
+                <div class="timeline-block timeline-block-right" data-aos="fade-left">
+                    <div class="timeline-pointer"></div>
+                    <div class="timeline-card">
+                        <h4>SEC Dismissal</h4>
+                        <p style="font-weight:600; color:#fff; margin-bottom:0.5rem;">Fortune 100 Tech Conglomerate</p>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Completely neutralized a high-profile multi-year insider trading investigation without any computational penalties.</p>
+                    </div>
+                </div>
+                <div class="timeline-block timeline-block-left" data-aos="fade-right">
+                    <div class="timeline-pointer"></div>
+                    <div class="timeline-card">
+                        <h4>$850M IP Settlement</h4>
+                        <p style="font-weight:600; color:#fff; margin-bottom:0.5rem;">Proprietary AI Matrix Protection</p>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Defended enterprise codebases against unauthorized algorithmic reconstruction by global competitors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="luxury-segment-node">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span>Client Validation</span>
+                <h2>Endorsements From Fortune 500 Leadership</h2>
+                <div class="accent-line"></div>
+            </div>
+            
+            <div class="marquee-container">
+                <div class="marquee-track">
+                    <div class="testimonial-marquee-card">
+                        <div class="star-rating-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p style="font-style:italic; margin-bottom:1.5rem; font-size:0.95rem; color:var(--text-muted);">"The multi-jurisdictional defense strategy executed by Vance insulated our global entity structure perfectly during intense federal corporate challenges."</p>
+                        <h5 style="color:#fff; font-size:0.9rem;">Chief Legal Officer, Vanguard Tech</h5>
+                    </div>
+                    <div class="testimonial-marquee-card">
+                        <div class="star-rating-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p style="font-style:italic; margin-bottom:1.5rem; font-size:0.95rem; color:var(--text-muted);">"Uncompromising precision. Secured an absolute historic cross-border settlement in the global energy sectors under immense timeline compression."</p>
+                        <h5 style="color:#fff; font-size:0.9rem;">VP Legal Infrastructure, Chevron Sector</h5>
+                    </div>
+                    <div class="testimonial-marquee-card">
+                        <div class="star-rating-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p style="font-style:italic; margin-bottom:1.5rem; font-size:0.95rem; color:var(--text-muted);">"Curtis, Vance &amp; Associates possesses an unparalleled capacity to command authority inside a courtroom. Truly exceptional advisory architects."</p>
+                        <h5 style="color:#fff; font-size:0.9rem;">Managing Director, Sterling Group</h5>
+                    </div>
+                    <div class="testimonial-marquee-card">
+                        <div class="star-rating-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p style="font-style:italic; margin-bottom:1.5rem; font-size:0.95rem; color:var(--text-muted);">"The multi-jurisdictional defense strategy executed by Vance insulated our global entity structure perfectly during intense federal corporate challenges."</p>
+                        <h5 style="color:#fff; font-size:0.9rem;">Chief Legal Officer, Vanguard Tech</h5>
+                    </div>
+                    <div class="testimonial-marquee-card">
+                        <div class="star-rating-row"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p style="font-style:italic; margin-bottom:1.5rem; font-size:0.95rem; color:var(--text-muted);">"Uncompromising precision. Secured an absolute historic cross-border settlement in the global energy sectors under immense timeline compression."</p>
+                        <h5 style="color:#fff; font-size:0.9rem;">VP Legal Infrastructure, Chevron Sector</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portal" class="client-portal-banner">
+        <div class="container portal-wrapper">
+            <div class="portal-text">
+                <h2>Protected Client Ecosystem</h2>
+                <p>Access your active case matrix, encrypted document repositories, and real-time trial updates through our end-to-end militarized digital node.</p>
+            </div>
+            <div class="portal-action">
+                <a href="#" class="btn-portal"><i class="fas fa-key"></i> Authenticate Portal</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="attorneys" class="luxury-segment-node attorneys">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span>The Partners</span>
+                <h2>Distinguished Legal Architects</h2>
+                <div class="accent-line"></div>
+            </div>
+            <div class="attorney-grid">
+                <div class="attorney-profile-card" data-aos="fade-up" data-tilt>
+                    <div class="attorney-image-container">
+                        <div class="attorney-image-placeholder"><i class="fas fa-user-tie"></i></div>
+                    </div>
+                    <div class="attorney-details-box">
+                        <h4>Vance R. Curtis</h4>
+                        <p>Managing Senior Partner</p>
+                    </div>
+                </div>
+                <div class="attorney-profile-card" data-aos="fade-up" data-tilt data-aos-delay="100">
+                    <div class="attorney-image-container">
+                        <div class="attorney-image-placeholder"><i class="fas fa-user-tie"></i></div>
+                    </div>
+                    <div class="attorney-details-box">
+                        <h4>Helena Vance</h4>
+                        <p>Senior Corporate Strategist</p>
+                    </div>
+                </div>
+                <div class="attorney-profile-card" data-aos="fade-up" data-tilt data-aos-delay="200">
+                    <div class="attorney-image-container">
+                        <div class="attorney-image-placeholder"><i class="fas fa-user-tie"></i></div>
+                    </div>
+                    <div class="attorney-details-box">
+                        <h4>Marcus Vance QC</h4>
+                        <p>Senior International Counsel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="luxury-segment-node" style="padding: 2rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+        <div class="container">
+            <div class="directory-badge-strip">
+                <i class="fab fa-gavel" title="Chambers Global Elite Rank 1"></i>
+                <i class="fas fa-award" title="The Legal 500 Recognition Badge"></i>
+                <i class="fas fa-balance-scale" title="Best Lawyers Publication"></i>
+                <i class="fas fa-shield-alt" title="Super Lawyers Elite Network"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="luxury-segment-node">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span>Intelligence Channels</span>
+                <h2>News &amp; Global Insights</h2>
+                <div class="accent-line"></div>
+            </div>
+            <div class="news-grid-system">
+                <div class="news-editorial-card" data-aos="fade-up">
+                    <span class="news-date-stamp">May 28, 2026</span>
+                    <h4>Navigating Sovereign Sanctions Matrices</h4>
+                    <p>An intricate structural exploration of resource asset deployment protection inside volatile trade block configurations.</p>
+                </div>
+                <div class="news-editorial-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="news-date-stamp">April 14, 2026</span>
+                    <h4>The Shift in Cross-Border IP Regulations</h4>
+                    <p>Evaluating defensive maneuvers against complex multi-jurisdictional code reconstruction lawsuits.</p>
+                </div>
+                <div class="news-editorial-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="news-date-stamp">March 02, 2026</span>
+                    <h4>SEC Computational Auditing Frameworks</h4>
+                    <p>How predictive automation technologies are changing white-collar defense deployment pathways.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="luxury-segment-node faq-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span>Information Architecture</span>
+                <h2>Frequently Retained Insights</h2>
+                <div class="accent-line"></div>
+            </div>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">How does the firm manage cross-border operational conflicts? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>We leverage native legal teams and active deployment offices across key international neutral trade centers to execute swift protective interventions across parallel jurisdictions.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What parameters define high-stakes asset validation filters? <i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>Our operational intake framework validates transaction histories using advanced cryptographic network tracing alongside tier-one corporate verification systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container contact-wrapper">
+            <div class="contact-info-block" data-aos="fade-right">
+                <h2>Initiate Strategic Advisory Deployment</h2>
+                <p>For over three decades, Curtis, Vance &amp; Associates has defined the gold standard in global advocacy. Transmission channels are reinforced by deep cryptographic structural protocol privacy layers.</p>
+                
+                <div class="firm-details">
+                    <p><i class="fas fa-map-marker-alt"></i> Global Chambers Center, Suite 9500, New York, NY</p>
+                    <p><i class="fas fa-phone-alt"></i> Secure Router: +1 (212) 555-0199</p>
+                    <p><i class="fas fa-shield-alt"></i> E2EE Communication Endpoint: operations@curtisvance.legal</p>
+                </div>
+            </div>
+
+            <div class="contact-form-block" data-aos="fade-left">
+                <form id="secureConsoleForm" onsubmit="handleFormSubmissionEvent(event)">
+                    <div class="form-group">
+                        <label for="designatedCounsel">Designated Legal Counsel</label>
+                        <select id="designatedCounsel">
+                            <option>Managing Lead Partner - Vance R. Curtis</option>
+                            <option>Senior Corporate Strategist - Helena Vance</option>
+                            <option>Arbitration Direct Operations Console</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fullLegalName">Full Legal Name</label>
+                        <input type="text" id="fullLegalName" required placeholder="Ex: Sterling Enterprise Group Holdings">
+                    </div>
+                    <div class="form-group">
+                        <label for="corporateSecureEmail">Corporate / Secure Email</label>
+                        <input type="email" id="corporateSecureEmail" required placeholder="secure@enterprise.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="caseManifestScope">Case Manifest / Scope of Counsel</label>
+                        <textarea id="caseManifestScope" rows="5" required placeholder="Outline high-stakes technical details or dispute configuration matrices..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">dispatch encrypted messages.</button>
+                    <div id="submissionOutputMessage" style="margin-top:1.5rem; font-size:0.85rem; color:var(--gold-primary); font-weight:600; text-align:center;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <button class="sms-float" id="prioritySmsFloatingConsole" onclick="triggerPrioritySmsAction()">
+        <div class="sms-icon-wrapper">
+            <i class="fas fa-comment-alt"></i>
+            <div class="pulse-ring"></div>
+        </div>
+        <div class="float-text">Priority sms.</div>
+    </button>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid-layout">
+                <div class="footer-col">
+                    <div class="footer-logo-text">Curtis, Vance &amp; Associates</div>
+                    <span class="footer-tagline">Where Precedent Meets Innovation</span>
+                    <p style="margin-top: 1rem; line-height: 1.5; font-size: 0.85rem;">Defending Legacies. Securing Billions. Elite institutional asset insulation across multi-national trade boundaries.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Global Nodes</h4>
+                    <ul>
+                        <li><a href="#home">New York Core</a></li>
+                        <li><a href="#home">London Center</a></li>
+                        <li><a href="#home">Geneva Neutral Axis</a></li>
+                        <li><a href="#home">Tokyo Gateway</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ecosystem</h4>
+                    <ul>
+                        <li><a href="#practice">Practice Sectors</a></li>
+                        <li><a href="#results">Precedents</a></li>
+                        <li><a href="#attorneys">The Partners</a></li>
+                        <li><a href="#faq">Retained Insights</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Intelligence Briefs</h4>
+                    <p style="font-size: 0.75rem; margin-bottom: 0.8rem;">Subscribe to receive encrypted high-stakes litigation updates.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="secure@nexus.com" aria-label="Newsletter input email">
+                        <button aria-label="Submit email button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom-bar">
+                <div class="footer-legal">
+                    <p class="disclaimer">&copy; 2026 Curtis, Vance &amp; Associates Legal Chambers. Protected under attorney advertising regulatory directives. All rights reserved globally.</p>
+                </div>
+                <div style="display:flex; gap:1.5rem; font-size:1.1rem;">
+                    <a href="#home" aria-label="LinkedIn channel link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#home" aria-label="Twitter asset link"><i class="fab fa-twitter"></i></a>
+                    <a href="#home" aria-label="Shield channel protection link"><i class="fas fa-fingerprint"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script>
+        // Initialize Animate On Scroll (AOS) Engine
+        AOS.init({
+            duration: 1000,
+            once: true,
+            disable: 'mobile' // Fallback to maximize computing speed on slow mobile engines
+        });
+
+        // Initialize 3D Card Tilt Engine
+        if (window.innerWidth > 768) {
+            VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+                max: 12,
+                speed: 400,
+                glare: true,
+                "max-glare": 0.15
+            });
+        }
+
+        // MOBILE NAVIGATION CONTROL SLIDE INTERACTION
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                const menuIcon = mobileMenuBtn.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    menuIcon.classList.replace('fa-bars', 'fa-times');
+                } else {
+                    menuIcon.classList.replace('fa-times', 'fa-bars');
+                }
+            });
+            
+            // Close slide menu when clicking navigation anchor targets
+            document.querySelectorAll('.nav-link, .btn-nav').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                });
+            });
+        }
+
+        // CUSTOM PLATINUM LEVEL CURSOR MOVEMENT FOLLOW ACTIONS
+        const cursorNode = document.getElementById('cursorNode');
+        const cursorRing = document.getElementById('cursorRing');
+
+        if (cursorNode && cursorRing) {
+            window.addEventListener('mousemove', (e) => {
+                cursorNode.style.left = e.clientX + 'px';
+                cursorNode.style.top = e.clientY + 'px';
+                
+                // Slight offset calculations for smooth orbital lagging tracking properties
+                setTimeout(() => {
+                    cursorRing.style.left = e.clientX + 'px';
+                    cursorRing.style.top = e.clientY + 'px';
+                }, 50);
+            });
+        }
+
+        // GRAPHICS SPHERE PARALLAX ON MOUSE ACTIONS
+        const parallaxSphere = document.getElementById('parallaxSphere');
+        if (parallaxSphere && window.innerWidth > 1024) {
+            window.addEventListener('mousemove', (e) => {
+                const xCoordinateOffset = (window.innerWidth / 2 - e.pageX) / 45;
+                const yCoordinateOffset = (window.innerHeight / 2 - e.pageY) / 45;
+                parallaxSphere.style.transform = `rotateX(${yCoordinateOffset}deg) rotateY(${xCoordinateOffset}deg)`;
+            });
+        }
+
+        // INTUITIVE INTERACTIVE FAQS ENGINE
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // SCROLL OBSERVER NUMBER COUNTERS LOGIC
+        const metricCounters = document.querySelectorAll('.counter-node');
+        const metricsTrigger = document.getElementById('metricsTrigger');
+        let executionMetricsState = false;
+
+        function runCountersEngine() {
+            metricCounters.forEach(counter => {
+                const terminalValue = +counter.getAttribute('data-value');
+                let computationalStartValue = 0;
+                const performanceStepValue = terminalValue / 50;
+
+                const frameExecutionLoop = () => {
+                    if (computationalStartValue < terminalValue) {
+                        computationalStartValue += performanceStepValue;
+                        let customNotation = Math.ceil(computationalStartValue) + '+';
+                        if (terminalValue === 50) customNotation = '$' + Math.ceil(computationalStartValue) + 'B+';
+                        counter.innerText = customNotation;
+                        setTimeout(frameExecutionLoop, 20);
+                    } else {
+                        counter.innerText = terminalValue === 50 ? '$50B+' : terminalValue + '+';
+                    }
+                };
+                frameExecutionLoop();
+            });
+        }
+
+        if (metricsTrigger) {
+            const counterObserverEngine = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !executionMetricsState) {
+                    runCountersEngine();
+                    executionMetricsState = true;
+                }
+            }, { threshold: 0.2 });
+            counterObserverEngine.observe(metricsTrigger);
+        }
+
+        // VISUAL SYSTEM LIGHT / DARK ALTERATION ARCHITECTURE
+        function toggleSystemTheme() {
+            document.body.classList.toggle('light-theme');
+            const themeNavIcon = document.getElementById('themeNavIcon');
+            if (document.body.classList.contains('light-theme')) {
+                themeNavIcon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                themeNavIcon.classList.replace('fa-sun', 'fa-moon');
+            }
+        }
+
+        // MANDATED PRESERVATION ACTIONS: CONTACT FORM INTERFACE DATA TRANSMISSION ROUTE
+        function handleFormSubmissionEvent(event) {
+            event.preventDefault();
+            const messageOutputBox = document.getElementById('submissionOutputMessage');
+            messageOutputBox.innerText = "Establishing secure route infrastructure... Compiling encryption keys.";
+            
+            setTimeout(() => {
+                messageOutputBox.innerText = "Transmission completely packaged and dispatched onto designated legal channels.";
+                document.getElementById('secureConsoleForm').reset();
+            }, 1600);
+        }
+
+        // MANDATED PRESERVATION ACTIONS: PRIORITY SMS LAUNCH FUNCTION
+        function triggerPrioritySmsAction() {
+            alert("Secure priority Direct SMS tracking route established successfully.");
+        }
+    </script>
+</body>
+</html>
